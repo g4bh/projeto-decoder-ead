@@ -11,4 +11,8 @@ public interface IUserService {
     Optional<UserModel> findById(UUID userId);
 
     void delete(UserModel userModel);
+
+    void save(UserModel userModel);
+
+    boolean existsByUsername(String username);
 }
