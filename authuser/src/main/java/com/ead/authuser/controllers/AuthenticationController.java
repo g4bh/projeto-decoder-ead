@@ -32,6 +32,10 @@ public class AuthenticationController {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Error: Username ir Alredy Taken!");
         }
 
+        if(userService.existsByEmail(userDto.getEmail())){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Error: Email ir Alredy Taken!");
+        }
+
         var userModel = new UserModel();
         BeanUtils.copyProperties(userDto, userModel);
 
